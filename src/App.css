@@ -17,6 +17,12 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.logo.car {
+  filter: drop-shadow(0 0 0.5em #ff6b00aa);
+}
+.logo.car:hover {
+  filter: drop-shadow(0 0 2em #ff6b00aa);
+}
 
 @keyframes logo-spin {
   from {
