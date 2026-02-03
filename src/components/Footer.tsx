@@ -9,23 +9,23 @@ function Footer() {
         <div className="footer-main">
           <div className="footer-brand">
             <div className="footer-logo">
-              <span className="footer-logo-icon">⚖️</span>
-              <span className="footer-logo-text">Lejerets Advokaten</span>
+              <span className="footer-logo-icon">🏖️</span>
+              <span className="footer-logo-text">Casa Mil Palmeras</span>
             </div>
             <p className="footer-description">
-              Specialiseret juridisk rådgivning inden for dansk lejelov.
-              Jeg hjælper både lejere og udlejere med at finde de bedste løsninger.
+              Dit ferieparadis ved den spanske Middelhavskyst.
+              Nyd sol, strand og afslapning i vores charmerende sommerhus.
             </p>
           </div>
 
           <div className="footer-links">
             <div className="footer-column">
-              <h4>Ydelser</h4>
+              <h4>Navigation</h4>
               <ul>
-                <li><a href="#ydelser">Lejekontrakter</a></li>
-                <li><a href="#ydelser">Huslejetvister</a></li>
-                <li><a href="#ydelser">Fraflytning</a></li>
-                <li><a href="#ydelser">Opsigelse</a></li>
+                <li><a href="#huset">Huset</a></li>
+                <li><a href="#faciliteter">Faciliteter</a></li>
+                <li><a href="#beliggenhed">Beliggenhed</a></li>
+                <li><a href="#kontakt">Book nu</a></li>
               </ul>
             </div>
 
@@ -33,26 +33,24 @@ function Footer() {
               <h4>Kontakt</h4>
               <ul>
                 <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
-                <li><a href="mailto:kontakt@lejeretsadvokaten.dk">kontakt@lejeretsadvokaten.dk</a></li>
-                <li>Vestergade 42, 1. sal</li>
-                <li>1456 København K</li>
+                <li><a href="mailto:booking@milpalmeras.dk">booking@milpalmeras.dk</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
-              <h4>Information</h4>
+              <h4>Beliggenhed</h4>
               <ul>
-                <li><a href="#om">Om mig</a></li>
-                <li><a href="#kontakt">Book møde</a></li>
-                <li><a href="#ydelser">Priser</a></li>
+                <li>Mil Palmeras</li>
+                <li>03191 Alicante</li>
+                <li>Spanien</li>
+                <li><a href="https://maps.app.goo.gl/6unC4Cv3XUuXVdK19" target="_blank" rel="noopener noreferrer">Se på kort</a></li>
               </ul>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Lejerets Advokaten. Alle rettigheder forbeholdes.</p>
-          <p className="footer-legal">CVR: 12345678 | Medlem af Advokatsamfundet</p>
+          <p>&copy; {currentYear} Casa Mil Palmeras. Alle rettigheder forbeholdes.</p>
         </div>
       </div>
     </footer>

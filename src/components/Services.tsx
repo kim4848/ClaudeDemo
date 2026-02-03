@@ -1,52 +1,67 @@
 import './Services.css'
 
-const services = [
+const features = [
   {
-    icon: '📋',
-    title: 'Lejekontrakter',
-    description: 'Gennemgang og udarbejdelse af lejekontrakter. Sikrer at dine rettigheder er beskyttet og vilkårene er fair.'
+    icon: '🛏️',
+    title: '3 Soveværelser',
+    description: 'Rummelige soveværelser med komfortable senge og aircondition. Plads til hele familien.'
   },
   {
-    icon: '💰',
-    title: 'Huslejetvister',
-    description: 'Hjælp ved uenighed om huslejens størrelse, reguleringer eller tilbagebetaling af for meget betalt leje.'
+    icon: '🚿',
+    title: '2 Badeværelser',
+    description: 'Moderne badeværelser med bruser. Håndklæder og toiletartikler er inkluderet.'
   },
   {
-    icon: '🏠',
-    title: 'Fraflytning & Istandsættelse',
-    description: 'Rådgivning ved fraflytning, istandsættelseskrav og tvister om depositum og forudbetalt leje.'
+    icon: '🏊',
+    title: 'Fælles Pool',
+    description: 'Adgang til stor fælles swimmingpool lige om hjørnet. Perfekt til afkøling i varmen.'
   },
   {
-    icon: '⚠️',
-    title: 'Opsigelse & Ophævelse',
-    description: 'Bistand ved opsigelse eller ophævelse af lejemål - både som lejer og udlejer.'
+    icon: '🌴',
+    title: 'Privat Terrasse',
+    description: 'Hyggelig terrasse med havemøbler og grill. Ideel til aftensmad under stjernerne.'
   },
   {
-    icon: '🔧',
-    title: 'Vedligeholdelse',
-    description: 'Tvister om vedligeholdelsespligt, mangler ved lejemålet og udlejers pligt til udbedring.'
+    icon: '❄️',
+    title: 'Aircondition',
+    description: 'Alle rum har aircondition, så du kan holde dig kølig selv på de varmeste dage.'
   },
   {
-    icon: '⚖️',
-    title: 'Huslejenævn & Boligret',
-    description: 'Repræsentation i sager ved Huslejenævnet og Boligretten. Jeg fører din sag fra start til slut.'
+    icon: '📶',
+    title: 'Gratis WiFi',
+    description: 'Højhastigheds internet i hele huset, så du kan holde kontakten med hjemmet.'
+  },
+  {
+    icon: '🍳',
+    title: 'Fuldt Køkken',
+    description: 'Veludstyret køkken med komfur, ovn, køleskab og opvaskemaskine.'
+  },
+  {
+    icon: '🚗',
+    title: 'Parkering',
+    description: 'Gratis privat parkeringsplads til bilen lige ved huset.'
+  },
+  {
+    icon: '🏖️',
+    title: 'Tæt på Strand',
+    description: 'Kun 300 meter til den smukke sandstrand. Tag en morgendykkert før morgenmad!'
   }
 ]
 
 function Services() {
   return (
-    <section id="ydelser" className="services">
+    <section id="faciliteter" className="services">
       <div className="services-container">
         <div className="services-header">
-          <h2>Mine ydelser</h2>
-          <p>Jeg tilbyder specialiseret juridisk rådgivning inden for alle aspekter af dansk lejelov</p>
+          <h2>Husets faciliteter</h2>
+          <p>Alt hvad du har brug for til en perfekt ferie ved Middelhavet</p>
         </div>
         <div className="services-grid">
-          {services.map((service, index) => (
+          {features.map((feature, index) => (
             <div key={index} className="service-card">
-              <span className="service-icon">{service.icon}</span>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+              <span className="service-icon">{feature.icon}</span>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
             </div>
           ))}
         </div>

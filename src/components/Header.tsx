@@ -5,15 +5,16 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <span className="logo-icon">⚖️</span>
-          <span className="logo-text">Lejerets Advokaten</span>
+          <span className="logo-icon">🏖️</span>
+          <span className="logo-text">Casa Mil Palmeras</span>
         </div>
         <nav className="nav">
-          <a href="#ydelser">Ydelser</a>
-          <a href="#om">Om mig</a>
+          <a href="#huset">Huset</a>
+          <a href="#faciliteter">Faciliteter</a>
+          <a href="#beliggenhed">Beliggenhed</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
-        <a href="#kontakt" className="cta-button">Gratis vurdering</a>
+        <a href="#kontakt" className="cta-button">Book nu</a>
       </div>
     </header>
   )

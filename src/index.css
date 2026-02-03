@@ -9,12 +9,27 @@
   line-height: 1.6;
   font-weight: 400;
   color-scheme: light;
-  color: #1a365d;
+  color: #1e3a5f;
   background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Fresh vacation color palette */
+  --color-primary: #0891b2;
+  --color-primary-dark: #0e7490;
+  --color-primary-light: #22d3ee;
+  --color-accent: #f97316;
+  --color-accent-light: #fb923c;
+  --color-sand: #fef7f0;
+  --color-sand-dark: #fed7aa;
+  --color-ocean: #0c4a6e;
+  --color-ocean-light: #0369a1;
+  --color-text: #1e3a5f;
+  --color-text-light: #64748b;
+  --color-white: #ffffff;
+  --color-success: #10b981;
 }
 
 html {
