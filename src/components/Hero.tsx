@@ -2,37 +2,37 @@ import './Hero.css'
 
 function Hero() {
   return (
-    <section className="hero">
+    <section id="huset" className="hero">
+      <div className="hero-background">
+        <div className="hero-overlay"></div>
+      </div>
       <div className="hero-container">
         <div className="hero-content">
-          <h1>Specialiseret rådgivning inden for <span className="highlight">dansk lejelov</span></h1>
+          <div className="hero-badge">Feriehus til leje</div>
+          <h1>Dit drømmehus ved <span className="highlight">Middelhavet</span></h1>
           <p className="hero-subtitle">
-            Som lejer eller udlejer kan lejereglerne være komplekse at navigere i.
-            Jeg hjælper dig med at forstå dine rettigheder og sikrer det bedste resultat for din sag.
+            Oplev den perfekte ferie i vores charmerende sommerhus i Mil Palmeras, Spanien.
+            Tæt på stranden, med palmer og sol - perfekt til drinks og afslapning.
           </p>
           <div className="hero-cta">
-            <a href="#kontakt" className="primary-button">Book gratis vurdering</a>
-            <a href="#ydelser" className="secondary-button">Se mine ydelser</a>
+            <a href="#kontakt" className="primary-button">Forespørg booking</a>
+            <a href="#faciliteter" className="secondary-button">Se faciliteter</a>
           </div>
           <div className="hero-stats">
             <div className="stat">
-              <span className="stat-number">15+</span>
-              <span className="stat-label">Års erfaring</span>
+              <span className="stat-icon">🛏️</span>
+              <span className="stat-number">3</span>
+              <span className="stat-label">Soveværelser</span>
             </div>
             <div className="stat">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Sager vundet</span>
+              <span className="stat-icon">🏊</span>
+              <span className="stat-number">300m</span>
+              <span className="stat-label">Til stranden</span>
             </div>
             <div className="stat">
-              <span className="stat-number">98%</span>
-              <span className="stat-label">Tilfredse klienter</span>
-            </div>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-image">
-            <div className="image-placeholder">
-              <span className="placeholder-icon">👨‍⚖️</span>
+              <span className="stat-icon">☀️</span>
+              <span className="stat-number">320</span>
+              <span className="stat-label">Soldage/år</span>
             </div>
           </div>
         </div>
