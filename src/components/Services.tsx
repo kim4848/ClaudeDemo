@@ -4,47 +4,32 @@ const features = [
   {
     icon: '🛏️',
     title: '3 Soveværelser',
-    description: 'Rummelige soveværelser med komfortable senge og aircondition. Plads til hele familien.'
+    description: 'Komfortable soveværelser med aircondition'
   },
   {
     icon: '🚿',
     title: '2 Badeværelser',
-    description: 'Moderne badeværelser med bruser. Håndklæder og toiletartikler er inkluderet.'
+    description: 'Moderne badeværelser med bruser'
   },
   {
     icon: '🏊',
     title: 'Fælles Pool',
-    description: 'Adgang til stor fælles swimmingpool lige om hjørnet. Perfekt til afkøling i varmen.'
+    description: 'Stor pool lige om hjørnet'
   },
   {
     icon: '🌴',
     title: 'Privat Terrasse',
-    description: 'Hyggelig terrasse med havemøbler og grill. Ideel til aftensmad under stjernerne.'
+    description: 'Med havemøbler og grill'
   },
   {
     icon: '❄️',
     title: 'Aircondition',
-    description: 'Alle rum har aircondition, så du kan holde dig kølig selv på de varmeste dage.'
+    description: 'I alle rum'
   },
   {
     icon: '📶',
     title: 'Gratis WiFi',
-    description: 'Højhastigheds internet i hele huset, så du kan holde kontakten med hjemmet.'
-  },
-  {
-    icon: '🍳',
-    title: 'Fuldt Køkken',
-    description: 'Veludstyret køkken med komfur, ovn, køleskab og opvaskemaskine.'
-  },
-  {
-    icon: '🚗',
-    title: 'Parkering',
-    description: 'Gratis privat parkeringsplads til bilen lige ved huset.'
-  },
-  {
-    icon: '🏖️',
-    title: 'Tæt på Strand',
-    description: 'Kun 300 meter til den smukke sandstrand. Tag en morgendykkert før morgenmad!'
+    description: 'Højhastigheds internet'
   }
 ]
 
@@ -53,17 +38,45 @@ function Services() {
     <section id="faciliteter" className="services">
       <div className="services-container">
         <div className="services-header">
-          <h2>Husets faciliteter</h2>
-          <p>Alt hvad du har brug for til en perfekt ferie ved Middelhavet</p>
+          <span className="section-label">Faciliteter</span>
+          <h2>Alt hvad du behøver til den <span className="gradient-text">perfekte ferie</span></h2>
+          <p>Vores hus er udstyret med alt det moderne komfort du forventer</p>
         </div>
         <div className="services-grid">
           {features.map((feature, index) => (
             <div key={index} className="service-card">
-              <span className="service-icon">{feature.icon}</span>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+              <div className="service-icon-wrapper">
+                <span className="service-icon">{feature.icon}</span>
+              </div>
+              <div className="service-content">
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
             </div>
           ))}
+        </div>
+
+        <div className="services-extra">
+          <div className="extra-item">
+            <span>🍳</span>
+            <span>Fuldt køkken</span>
+          </div>
+          <div className="extra-item">
+            <span>🚗</span>
+            <span>Gratis parkering</span>
+          </div>
+          <div className="extra-item">
+            <span>🧺</span>
+            <span>Vaskemaskine</span>
+          </div>
+          <div className="extra-item">
+            <span>📺</span>
+            <span>Smart TV</span>
+          </div>
+          <div className="extra-item">
+            <span>🧹</span>
+            <span>Slutrengøring inkl.</span>
+          </div>
         </div>
       </div>
     </section>

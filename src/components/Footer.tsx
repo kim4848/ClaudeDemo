@@ -6,51 +6,36 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-main">
+        <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
               <span className="footer-logo-icon">🏖️</span>
               <span className="footer-logo-text">Casa Mil Palmeras</span>
             </div>
-            <p className="footer-description">
-              Dit ferieparadis ved den spanske Middelhavskyst.
-              Nyd sol, strand og afslapning i vores charmerende sommerhus.
+            <p className="footer-tagline">
+              Dit ferieparadis ved Middelhavet
             </p>
           </div>
 
-          <div className="footer-links">
-            <div className="footer-column">
-              <h4>Navigation</h4>
-              <ul>
-                <li><a href="#huset">Huset</a></li>
-                <li><a href="#faciliteter">Faciliteter</a></li>
-                <li><a href="#beliggenhed">Beliggenhed</a></li>
-                <li><a href="#kontakt">Book nu</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h4>Kontakt</h4>
-              <ul>
-                <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
-                <li><a href="mailto:booking@milpalmeras.dk">booking@milpalmeras.dk</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h4>Beliggenhed</h4>
-              <ul>
-                <li>Mil Palmeras</li>
-                <li>03191 Alicante</li>
-                <li>Spanien</li>
-                <li><a href="https://maps.app.goo.gl/6unC4Cv3XUuXVdK19" target="_blank" rel="noopener noreferrer">Se på kort</a></li>
-              </ul>
-            </div>
+          <div className="footer-nav">
+            <a href="#huset">Huset</a>
+            <a href="#faciliteter">Faciliteter</a>
+            <a href="#beliggenhed">Beliggenhed</a>
+            <a href="#kontakt">Booking</a>
           </div>
         </div>
 
+        <div className="footer-divider"></div>
+
         <div className="footer-bottom">
-          <p>&copy; {currentYear} Casa Mil Palmeras. Alle rettigheder forbeholdes.</p>
+          <p className="footer-copyright">
+            &copy; {currentYear} Casa Mil Palmeras
+          </p>
+          <div className="footer-contact">
+            <a href="mailto:booking@milpalmeras.dk">booking@milpalmeras.dk</a>
+            <span className="footer-dot"></span>
+            <a href="tel:+4512345678">+45 12 34 56 78</a>
+          </div>
         </div>
       </div>
     </footer>
