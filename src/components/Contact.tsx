@@ -1,7 +1,13 @@
 import BookingForm from './BookingForm'
 import './Contact.css'
 
-function Contact() {
+interface ContactProps {
+  selectedStart: string | null
+  selectedEnd: string | null
+  onDateChange: (start: string | null, end: string | null) => void
+}
+
+function Contact({ selectedStart, selectedEnd, onDateChange }: ContactProps) {
   return (
     <section id="kontakt" className="contact">
       <div className="contact-container">
@@ -13,7 +19,11 @@ function Contact() {
 
         <div className="contact-content contact-content-full">
           <div className="booking-wrapper">
-            <BookingForm />
+            <BookingForm
+              selectedStart={selectedStart}
+              selectedEnd={selectedEnd}
+              onDateChange={onDateChange}
+            />
           </div>
 
           <div className="contact-info">
