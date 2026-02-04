@@ -22,6 +22,7 @@ function Header() {
         <nav className="nav">
           <a href="#huset" className="nav-link">Huset</a>
           <a href="#faciliteter" className="nav-link">Faciliteter</a>
+          <a href="#galleri" className="nav-link">Galleri</a>
           <a href="#beliggenhed" className="nav-link">Beliggenhed</a>
           <a href="#priser" className="nav-link">Priser</a>
           <a href="#kontakt" className="nav-link">Kontakt</a>
