@@ -1,0 +1,107 @@
+.scrolling-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.parallax-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  will-change: transform;
+}
+
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 102, 204, 0.15) 0%,
+    rgba(0, 136, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(0, 136, 255, 0.1) 75%,
+    rgba(0, 102, 204, 0.2) 100%
+  );
+}
+
+/* Layer 1 - Top beach scene with clear turquoise water */
+.parallax-layer-1 {
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80');
+  opacity: 0.4;
+  top: 0;
+  height: 100vh;
+}
+
+/* Layer 2 - Crystal clear ocean with waves */
+.parallax-layer-2 {
+  background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=80');
+  opacity: 0.35;
+  top: 80vh;
+  height: 100vh;
+}
+
+/* Layer 3 - Deep blue ocean water */
+.parallax-layer-3 {
+  background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&q=80');
+  opacity: 0.3;
+  top: 160vh;
+  height: 100vh;
+}
+
+/* Layer 4 - Sandy beach with blue water */
+.parallax-layer-4 {
+  background-image: url('https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1920&q=80');
+  opacity: 0.35;
+  top: 240vh;
+  height: 100vh;
+}
+
+/* Subtle animation for water effect */
+@keyframes subtle-wave {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
+
+.parallax-layer-2,
+.parallax-layer-3 {
+  animation: subtle-wave 20s ease-in-out infinite;
+}
+
+.parallax-layer-3 {
+  animation-delay: -10s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .parallax-layer {
+    background-attachment: scroll;
+  }
+
+  .parallax-layer-1 {
+    height: 80vh;
+  }
+
+  .parallax-layer-2 {
+    top: 60vh;
+    height: 80vh;
+  }
+
+  .parallax-layer-3 {
+    top: 120vh;
+    height: 80vh;
+  }
+
+  .parallax-layer-4 {
+    top: 180vh;
+    height: 80vh;
+  }
+}
