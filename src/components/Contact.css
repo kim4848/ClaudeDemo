@@ -1,6 +1,6 @@
 .contact {
-  padding: 120px 2rem;
-  background: var(--color-white);
+  padding: 100px 2rem;
+  background: var(--color-bg);
 }
 
 .contact-container {
@@ -10,30 +10,33 @@
 
 .contact-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
-.section-label {
+.section-badge {
   display: inline-block;
+  background: var(--color-bg-warm);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .contact-header h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   color: var(--color-text);
   margin-bottom: 1rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .contact-header p {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--color-text-secondary);
 }
 
@@ -49,9 +52,9 @@
 }
 
 .booking-wrapper {
-  background: var(--color-bg);
-  padding: 2.5rem;
-  border-radius: var(--radius-xl);
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 }
 
@@ -69,96 +72,6 @@
   justify-content: center;
 }
 
-/* Form */
-.contact-form-wrapper {
-  background: var(--color-bg);
-  padding: 2.5rem;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1.25rem;
-}
-
-.form-group label {
-  display: block;
-  color: var(--color-text);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  font-size: 1rem;
-  transition: all var(--transition-fast);
-  background: var(--color-white);
-  font-family: inherit;
-  color: var(--color-text);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: var(--color-text-muted);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-.submit-button {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: var(--gradient-primary);
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: var(--radius-full);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
-  margin-top: 0.5rem;
-}
-
-.submit-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.45);
-}
-
-.submit-button svg {
-  transition: transform var(--transition-fast);
-}
-
-.submit-button:hover svg {
-  transform: translateX(4px);
-}
-
 /* Info Cards */
 .contact-info {
   display: flex;
@@ -171,7 +84,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background: var(--color-bg);
+  background: var(--color-white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   transition: all var(--transition-base);
@@ -183,7 +96,15 @@
 }
 
 .info-icon {
-  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  flex-shrink: 0;
 }
 
 .info-content {
@@ -205,6 +126,11 @@
   text-decoration: none;
 }
 
+.info-price {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
 a.info-value:hover {
   color: var(--color-primary);
 }
@@ -213,8 +139,9 @@ a.info-value:hover {
 .perks-list {
   margin-top: 1rem;
   padding: 1.5rem;
-  background: var(--color-bg);
+  background: var(--color-white);
   border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -229,8 +156,85 @@ a.info-value:hover {
 }
 
 .perk svg {
-  color: #22c55e;
+  color: var(--color-accent);
   flex-shrink: 0;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--color-text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  background: var(--color-white);
+  font-family: inherit;
+  color: var(--color-text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-button {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: 0.5rem;
+}
+
+.submit-button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.3);
+}
+
+.submit-button svg {
+  transition: transform var(--transition-fast);
+}
+
+.submit-button:hover svg {
+  transform: translateX(4px);
 }
 
 @media (max-width: 968px) {
@@ -268,15 +272,7 @@ a.info-value:hover {
 
 @media (max-width: 640px) {
   .contact {
-    padding: 80px 1rem;
-  }
-
-  .contact-form-wrapper {
-    padding: 1.5rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
+    padding: 60px 1rem;
   }
 
   .contact-info {

@@ -3,71 +3,155 @@ import './Hero.css'
 function Hero() {
   return (
     <section id="huset" className="hero">
-      <div className="hero-bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
+      <div className="hero-background">
+        <div className="hero-overlay"></div>
       </div>
 
       <div className="hero-container">
         <div className="hero-content">
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            Ledigt nu
-          </div>
-
           <h1>
-            Din ferie ved
-            <span className="gradient-text"> Middelhavet</span>
-            <br />starter her
+            Din drømmeferie i <span className="text-highlight">Spanien</span>
+            <br />venter på dig
           </h1>
-
           <p className="hero-subtitle">
-            Moderne feriehus i Mil Palmeras, Spanien. 300 meter til stranden,
-            privat terrasse og pool. Perfekt til familien.
+            Moderne feriehus i Mil Palmeras ved Middelhavet.
+            300 meter til stranden, privat terrasse og fælles pool.
           </p>
-
-          <div className="hero-cta">
-            <a href="#kontakt" className="btn-primary">
-              Book dit ophold
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-            <a href="#faciliteter" className="btn-secondary">Se faciliteter</a>
-          </div>
         </div>
 
-        <div className="hero-cards">
-          <div className="feature-card card-1">
-            <span className="card-icon">🛏️</span>
-            <div className="card-content">
-              <span className="card-value">3</span>
-              <span className="card-label">Soveværelser</span>
+        <div className="search-widget-container">
+          <div className="search-widget">
+            <div className="search-widget-header">
+              <h2>Book dit ophold</h2>
+              <p>Find ledige datoer og book direkte</p>
+            </div>
+
+            <div className="search-fields">
+              <div className="search-field">
+                <label>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  Ankomst
+                </label>
+                <input type="date" placeholder="Vælg dato" />
+              </div>
+
+              <div className="search-field">
+                <label>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  Afrejse
+                </label>
+                <input type="date" placeholder="Vælg dato" />
+              </div>
+
+              <div className="search-field">
+                <label>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  Gæster
+                </label>
+                <select>
+                  <option value="2">2 gæster</option>
+                  <option value="3">3 gæster</option>
+                  <option value="4">4 gæster</option>
+                  <option value="5">5 gæster</option>
+                  <option value="6">6 gæster</option>
+                </select>
+              </div>
+            </div>
+
+            <a href="#kontakt" className="search-button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="M21 21l-4.35-4.35"/>
+              </svg>
+              Se priser og book
+            </a>
+
+            <div className="search-widget-footer">
+              <span className="availability-badge">
+                <span className="availability-dot"></span>
+                Ledige datoer tilgængelige
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero-features">
+        <div className="hero-features-container">
+          <div className="hero-feature">
+            <div className="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </div>
+            <div className="feature-text">
+              <span className="feature-value">3</span>
+              <span className="feature-label">Soveværelser</span>
             </div>
           </div>
 
-          <div className="feature-card card-2">
-            <span className="card-icon">🏖️</span>
-            <div className="card-content">
-              <span className="card-value">300m</span>
-              <span className="card-label">Til stranden</span>
+          <div className="hero-feature">
+            <div className="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14,2 14,8 20,8"/>
+                <path d="M12 18v-6"/>
+                <path d="M9 15l3 3 3-3"/>
+              </svg>
+            </div>
+            <div className="feature-text">
+              <span className="feature-value">300m</span>
+              <span className="feature-label">Til stranden</span>
             </div>
           </div>
 
-          <div className="feature-card card-3">
-            <span className="card-icon">☀️</span>
-            <div className="card-content">
-              <span className="card-value">320+</span>
-              <span className="card-label">Soldage om året</span>
+          <div className="hero-feature">
+            <div className="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </div>
+            <div className="feature-text">
+              <span className="feature-value">320+</span>
+              <span className="feature-label">Soldage årligt</span>
             </div>
           </div>
 
-          <div className="feature-card card-4">
-            <span className="card-icon">🏊</span>
-            <div className="card-content">
-              <span className="card-value">Pool</span>
-              <span className="card-label">Fælles pool</span>
+          <div className="hero-feature">
+            <div className="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M2 12h6a2 2 0 012 2v5a2 2 0 01-2 2H4a2 2 0 01-2-2v-7z"/>
+                <path d="M22 12h-6a2 2 0 00-2 2v5a2 2 0 002 2h4a2 2 0 002-2v-7z"/>
+                <path d="M6 12V5a2 2 0 012-2h8a2 2 0 012 2v7"/>
+              </svg>
+            </div>
+            <div className="feature-text">
+              <span className="feature-value">Pool</span>
+              <span className="feature-label">Fælles pool</span>
             </div>
           </div>
         </div>
