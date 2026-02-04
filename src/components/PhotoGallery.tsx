@@ -11,51 +11,51 @@ interface Photo {
 const photos: Photo[] = [
   {
     id: 1,
+    src: '/images/huset-facade.jpg',
+    alt: 'Casa Mil Palmeras - Spansk villa med palmer og hvidt hegn',
+    category: 'Facade'
+  },
+  {
+    id: 2,
     src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
     alt: 'Moderne stue med sofa og naturligt lys',
     category: 'Stue'
   },
   {
-    id: 2,
+    id: 3,
     src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
     alt: 'Fuldt udstyret køkken med moderne apparater',
     category: 'Køkken'
   },
   {
-    id: 3,
+    id: 4,
     src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80',
     alt: 'Komfortabelt soveværelse med dobbeltseng',
     category: 'Soveværelse'
   },
   {
-    id: 4,
+    id: 5,
     src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80',
     alt: 'Terrasse med havudsigt',
     category: 'Terrasse'
   },
   {
-    id: 5,
+    id: 6,
     src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80',
     alt: 'Moderne badeværelse med brusekabine',
     category: 'Badeværelse'
   },
   {
-    id: 6,
+    id: 7,
     src: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80',
     alt: 'Nærliggende strand med krystalklart vand',
     category: 'Strand'
   },
   {
-    id: 7,
+    id: 8,
     src: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&q=80',
     alt: 'Swimmingpool i feriekomplekset',
     category: 'Pool'
-  },
-  {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-    alt: 'Lejlighedens facade med balkon',
-    category: 'Facade'
   }
 ]
 
