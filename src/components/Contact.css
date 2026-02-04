@@ -1,6 +1,8 @@
 .contact {
   padding: 100px 2rem;
-  background: var(--color-bg);
+  background: rgba(245, 245, 245, 0.92);
+  backdrop-filter: blur(10px);
+  position: relative;
 }
 
 .contact-container {
