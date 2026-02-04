@@ -17,38 +17,46 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Modern color palette */
-  --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
-  --gradient-warm: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+  /* Travel website color palette - Spies.dk inspired */
+  --gradient-primary: linear-gradient(135deg, #ff6b00 0%, #ff8533 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b00 0%, #ff9500 100%);
+  --gradient-blue: linear-gradient(135deg, #0066cc 0%, #0088ff 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
 
-  --color-primary: #06b6d4;
-  --color-secondary: #3b82f6;
-  --color-accent: #f97316;
-  --color-purple: #8b5cf6;
+  --color-primary: #ff6b00;
+  --color-primary-dark: #e55a00;
+  --color-primary-light: #ff8533;
+  --color-secondary: #0066cc;
+  --color-secondary-light: #0088ff;
+  --color-accent: #00a86b;
+  --color-warning: #ffc107;
 
-  --color-bg: #fafbfc;
-  --color-bg-warm: #fef7ed;
-  --color-bg-cool: #f0f9ff;
+  --color-bg: #f5f5f5;
+  --color-bg-warm: #fff8f0;
+  --color-bg-cool: #f0f7ff;
+  --color-bg-dark: #1a1a2e;
 
-  --color-text: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94a3b8;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4a4a5a;
+  --color-text-muted: #8a8a9a;
+  --color-text-light: #ffffff;
 
   --color-white: #ffffff;
-  --color-border: rgba(0, 0, 0, 0.06);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.2);
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  /* Modern card styling */
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 
   /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.3);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 0 40px rgba(255, 107, 0, 0.3);
 
   /* Border radius */
   --radius-sm: 8px;
@@ -108,8 +116,52 @@ h1, h2, h3, h4, h5, h6 {
   background-clip: text;
 }
 
+.text-orange {
+  color: var(--color-primary);
+}
+
 /* Selection */
 ::selection {
   background: var(--color-primary);
   color: white;
+}
+
+/* Travel search widget base styles */
+.search-widget {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: 1.5rem;
+}
+
+.search-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-input-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.search-input-group input,
+.search-input-group select {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: border-color var(--transition-fast);
+}
+
+.search-input-group input:focus,
+.search-input-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
 }
