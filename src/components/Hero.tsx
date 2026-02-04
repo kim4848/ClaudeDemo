@@ -1,6 +1,24 @@
 import './Hero.css'
 
-function Hero() {
+interface HeroProps {
+  selectedStart: string | null
+  selectedEnd: string | null
+  onDateChange: (start: string | null, end: string | null) => void
+}
+
+function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
+  const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newStart = e.target.value || null
+    onDateChange(newStart, selectedEnd)
+  }
+
+  const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newEnd = e.target.value || null
+    onDateChange(selectedStart, newEnd)
+  }
+
+  const today = new Date().toISOString().split('T')[0]
+
   return (
     <section id="huset" className="hero">
       <div className="hero-background">
@@ -37,7 +55,13 @@ function Hero() {
                   </svg>
                   Ankomst
                 </label>
-                <input type="date" placeholder="Vælg dato" />
+                <input
+                  type="date"
+                  placeholder="Vælg dato"
+                  value={selectedStart || ''}
+                  onChange={handleStartDateChange}
+                  min={today}
+                />
               </div>
 
               <div className="search-field">
@@ -50,7 +74,13 @@ function Hero() {
                   </svg>
                   Afrejse
                 </label>
-                <input type="date" placeholder="Vælg dato" />
+                <input
+                  type="date"
+                  placeholder="Vælg dato"
+                  value={selectedEnd || ''}
+                  onChange={handleEndDateChange}
+                  min={selectedStart || today}
+                />
               </div>
 
               <div className="search-field">

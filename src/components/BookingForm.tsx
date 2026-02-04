@@ -5,9 +5,13 @@ import './BookingForm.css'
 
 const MIN_BOOKING_DAYS = 4
 
-function BookingForm() {
-  const [selectedStart, setSelectedStart] = useState<string | null>(null)
-  const [selectedEnd, setSelectedEnd] = useState<string | null>(null)
+interface BookingFormProps {
+  selectedStart: string | null
+  selectedEnd: string | null
+  onDateChange: (start: string | null, end: string | null) => void
+}
+
+function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -15,8 +19,7 @@ function BookingForm() {
   const [errorMessage, setErrorMessage] = useState('')
 
   const handleDateRangeSelect = (start: string, end: string) => {
-    setSelectedStart(start || null)
-    setSelectedEnd(end || null)
+    onDateChange(start || null, end || null)
     setSubmitStatus('idle')
     setErrorMessage('')
   }
@@ -53,8 +56,7 @@ function BookingForm() {
       setName('')
       setEmail('')
       setPhone('')
-      setSelectedStart(null)
-      setSelectedEnd(null)
+      onDateChange(null, null)
     } catch {
       setSubmitStatus('error')
       setErrorMessage('Der opstod en fejl. Prøv venligst igen.')
