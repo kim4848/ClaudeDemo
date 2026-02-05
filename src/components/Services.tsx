@@ -25,8 +25,9 @@ const features = [
   {
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+        <path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+        <path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+        <circle cx="12" cy="7" r="3"/>
       </svg>
     ),
     title: 'Fælles Pool',
