@@ -60,6 +60,7 @@ function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
                   placeholder="Vælg dato"
                   value={selectedStart || ''}
                   onChange={handleStartDateChange}
+                  onKeyDown={(e) => e.preventDefault()}
                   min={today}
                 />
               </div>
@@ -79,6 +80,7 @@ function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
                   placeholder="Vælg dato"
                   value={selectedEnd || ''}
                   onChange={handleEndDateChange}
+                  onKeyDown={(e) => e.preventDefault()}
                   min={selectedStart || today}
                 />
               </div>
