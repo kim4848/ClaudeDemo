@@ -8,8 +8,25 @@ export const config = {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end()
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' })
+  }
+
+  // Check if token is configured
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    console.error('BLOB_READ_WRITE_TOKEN is not set')
+    return res.status(500).json({
+      error: 'Server configuration error: BLOB_READ_WRITE_TOKEN is not set'
+    })
   }
 
   try {
@@ -26,7 +43,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       addRandomSuffix: true,
     })
 
-    // Return the blob info with metadata
     return res.status(200).json({
       url: blob.url,
       pathname: blob.pathname,
@@ -35,6 +51,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     })
   } catch (error) {
     console.error('Upload error:', error)
-    return res.status(500).json({ error: 'Upload failed' })
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return res.status(500).json({ error: `Upload failed: ${message}` })
   }
 }

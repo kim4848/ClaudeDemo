@@ -47,7 +47,8 @@ function GalleryAdmin() {
       }
     } catch (error) {
       console.error('Upload error:', error)
-      alert('Upload fejlede. Tjek at BLOB_READ_WRITE_TOKEN er sat i Vercel.')
+      const message = error instanceof Error ? error.message : 'Ukendt fejl'
+      alert(`Upload fejlede: ${message}`)
     } finally {
       setUploading(false)
     }
