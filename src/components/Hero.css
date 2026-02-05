@@ -11,7 +11,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(26, 26, 46, 0.4) 50%, rgba(255, 107, 0, 0.3) 100%),
+    linear-gradient(135deg, rgba(26, 26, 46, 0.4) 0%, rgba(26, 26, 46, 0.15) 50%, rgba(0, 150, 200, 0.15) 100%),
     url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center/cover no-repeat;
   z-index: 0;
 }
@@ -21,9 +21,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.1) 40%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.05) 40%,
+    rgba(0, 0, 0, 0.3) 100%
   );
 }
 
