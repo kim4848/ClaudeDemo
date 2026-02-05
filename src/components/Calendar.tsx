@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getBookedDates } from '../utils/bookingStorage'
+import { getBookedDates, isDateRangeAvailable } from '../utils/bookingStorage'
 import { getBlockedDateStrings } from '../utils/blockedDatesStorage'
 import './Calendar.css'
 
@@ -78,11 +78,16 @@ function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarPro
       const startDate = new Date(selectedStart)
       const clickedDate = new Date(dateStr)
 
-      if (clickedDate < startDate) {
-        onDateRangeSelect(dateStr, selectedStart)
-      } else {
-        onDateRangeSelect(selectedStart, dateStr)
+      // Determine the actual start and end dates
+      const actualStart = clickedDate < startDate ? dateStr : selectedStart
+      const actualEnd = clickedDate < startDate ? selectedStart : dateStr
+
+      // Check if the entire range is available (no pending, confirmed, or blocked dates)
+      if (!isDateRangeAvailable(actualStart, actualEnd)) {
+        return // Don't allow selection if range contains unavailable dates
       }
+
+      onDateRangeSelect(actualStart, actualEnd)
     }
   }
 
