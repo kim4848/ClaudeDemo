@@ -110,10 +110,6 @@ function PhotoGallery() {
                   </svg>
                 </div>
               </div>
-              <div className="photo-info">
-                <span className="photo-category">{photo.category}</span>
-                <p className="photo-description">{photo.alt}</p>
-              </div>
             </div>
           ))}
           </div>
