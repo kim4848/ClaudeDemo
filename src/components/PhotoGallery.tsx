@@ -1,73 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { getPhotos, type GalleryPhoto } from '../utils/photoStorage'
 import './PhotoGallery.css'
 
 interface Photo {
-  id: number
+  id: string
   src: string
   alt: string
   category: string
 }
 
-const photos: Photo[] = [
-  {
-    id: 1,
-    src: '/images/huset-facade.jpg',
-    alt: 'Casa Mil Palmeras - Spansk villa med palmer og hvidt hegn',
-    category: 'Facade'
-  },
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-    alt: 'Moderne stue med sofa og naturligt lys',
-    category: 'Stue'
-  },
-  {
-    id: 3,
-    src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
-    alt: 'Fuldt udstyret køkken med moderne apparater',
-    category: 'Køkken'
-  },
-  {
-    id: 4,
-    src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80',
-    alt: 'Komfortabelt soveværelse med dobbeltseng',
-    category: 'Soveværelse'
-  },
-  {
-    id: 5,
-    src: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80',
-    alt: 'Terrasse med havudsigt',
-    category: 'Terrasse'
-  },
-  {
-    id: 6,
-    src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80',
-    alt: 'Moderne badeværelse med brusekabine',
-    category: 'Badeværelse'
-  },
-  {
-    id: 7,
-    src: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80',
-    alt: 'Nærliggende strand med krystalklart vand',
-    category: 'Strand'
-  },
-  {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&q=80',
-    alt: 'Swimmingpool i feriekomplekset',
-    category: 'Pool'
-  }
-]
-
-const categories = ['Alle', ...new Set(photos.map(p => p.category))]
-
 function PhotoGallery() {
+  const [uploadedPhotos, setUploadedPhotos] = useState<GalleryPhoto[]>([])
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null)
   const [activeCategory, setActiveCategory] = useState('Alle')
 
+  useEffect(() => {
+    setUploadedPhotos(getPhotos())
+  }, [])
+
+  // Combine uploaded photos (they take priority and show first)
+  const allPhotos: Photo[] = useMemo(() => {
+    return uploadedPhotos.map(p => ({
+      id: p.id,
+      src: p.url,
+      alt: p.alt,
+      category: p.category,
+    }))
+  }, [uploadedPhotos])
+
+  const categories = useMemo(() => {
+    const cats = new Set(allPhotos.map(p => p.category))
+    return ['Alle', ...cats]
+  }, [allPhotos])
+
   const filteredPhotos = activeCategory === 'Alle'
-    ? photos
-    : photos.filter(p => p.category === activeCategory)
+    ? allPhotos
+    : allPhotos.filter(p => p.category === activeCategory)
 
   const openLightbox = (photo: Photo) => {
     setSelectedPhoto(photo)
@@ -100,20 +68,33 @@ function PhotoGallery() {
           <p>Udforsk vores ferielejlighed gennem billeder af alle rum og faciliteter</p>
         </div>
 
-        <div className="photo-categories">
-          {categories.map(category => (
-            <button
-              key={category}
-              className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+        {allPhotos.length > 0 && (
+          <div className="photo-categories">
+            {categories.map(category => (
+              <button
+                key={category}
+                className={`category-btn ${activeCategory === category ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}
 
-        <div className="photo-grid">
-          {filteredPhotos.map(photo => (
+        {allPhotos.length === 0 ? (
+          <div className="photo-empty-state">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p>Ingen billeder i galleriet endnu</p>
+            <span>Upload billeder via admin-panelet</span>
+          </div>
+        ) : (
+          <div className="photo-grid">
+            {filteredPhotos.map(photo => (
             <div
               key={photo.id}
               className="photo-card"
@@ -135,7 +116,8 @@ function PhotoGallery() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        )}
       </div>
 
       {selectedPhoto && (

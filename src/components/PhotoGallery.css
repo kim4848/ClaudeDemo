@@ -28,6 +28,32 @@
   margin: 0 auto;
 }
 
+/* Empty State */
+.photo-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--color-border);
+}
+
+.photo-empty-state svg {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.photo-empty-state p {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.photo-empty-state span {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
 /* Category Filter */
 .photo-categories {
   display: flex;
