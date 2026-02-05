@@ -60,7 +60,7 @@ function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarPro
     const date = new Date(dateStr)
     if (date < today) return false
     const bookedStatus = isDateBooked(dateStr)
-    if (bookedStatus === 'confirmed') return false
+    if (bookedStatus === 'confirmed' || bookedStatus === 'pending') return false
     if (blockedDates.includes(dateStr)) return false
     return true
   }
