@@ -174,9 +174,9 @@ function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
           <div className="hero-feature">
             <div className="feature-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M2 12h6a2 2 0 012 2v5a2 2 0 01-2 2H4a2 2 0 01-2-2v-7z"/>
-                <path d="M22 12h-6a2 2 0 00-2 2v5a2 2 0 002 2h4a2 2 0 002-2v-7z"/>
-                <path d="M6 12V5a2 2 0 012-2h8a2 2 0 012 2v7"/>
+                <path d="M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+                <path d="M2 17c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+                <circle cx="12" cy="7" r="3"/>
               </svg>
             </div>
             <div className="feature-text">
