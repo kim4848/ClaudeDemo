@@ -1,4 +1,5 @@
 import type { Booking, BookingFormData, BookingStatus } from '../types/booking'
+import { getBlockedDateStrings } from './blockedDatesStorage'
 
 const STORAGE_KEY = 'casa-mil-palmeras-bookings'
 
@@ -59,18 +60,28 @@ export function getBookedDates(): { start: string; end: string; status: BookingS
 
 export function isDateRangeAvailable(startDate: string, endDate: string): boolean {
   const bookedRanges = getBookedDates()
+  const blockedDates = getBlockedDateStrings()
   const start = new Date(startDate)
   const end = new Date(endDate)
 
+  // Check for overlap with booked ranges
   for (const range of bookedRanges) {
     const bookedStart = new Date(range.start)
     const bookedEnd = new Date(range.end)
 
-    // Check for overlap
     if (start < bookedEnd && end > bookedStart) {
       return false
     }
   }
+
+  // Check if any blocked date falls within the range
+  for (const blockedDate of blockedDates) {
+    const blocked = new Date(blockedDate)
+    if (blocked >= start && blocked < end) {
+      return false
+    }
+  }
+
   return true
 }
 

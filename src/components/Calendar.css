@@ -113,6 +113,12 @@
   color: #d97706;
 }
 
+.calendar-day.blocked {
+  background: #ede9fe;
+  color: #7c3aed;
+  cursor: not-allowed;
+}
+
 .calendar-day.in-range {
   background: var(--color-bg-warm);
   border-radius: 0;
@@ -168,6 +174,10 @@
 
 .legend-color.booked {
   background: #fee2e2;
+}
+
+.legend-color.blocked {
+  background: #ede9fe;
 }
 
 @media (max-width: 480px) {

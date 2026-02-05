@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
 import GalleryAdmin from './pages/GalleryAdmin'
+import CalendarAdmin from './pages/CalendarAdmin'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/gallery" element={<GalleryAdmin />} />
+        <Route path="/admin/calendar" element={<CalendarAdmin />} />
       </Routes>
     </BrowserRouter>
   )

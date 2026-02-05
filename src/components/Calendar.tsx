@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getBookedDates } from '../utils/bookingStorage'
+import { getBlockedDateStrings } from '../utils/blockedDatesStorage'
 import './Calendar.css'
 
 interface CalendarProps {
@@ -18,6 +19,7 @@ const DAY_NAMES = ['Man', 'Tir', 'Ons', 'Tor', 'Fre', 'Lør', 'Søn']
 function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date())
   const bookedDates = getBookedDates()
+  const blockedDates = getBlockedDateStrings()
 
   const year = currentDate.getFullYear()
   const month = currentDate.getMonth()
@@ -58,7 +60,9 @@ function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarPro
     const date = new Date(dateStr)
     if (date < today) return false
     const bookedStatus = isDateBooked(dateStr)
-    return bookedStatus !== 'confirmed'
+    if (bookedStatus === 'confirmed') return false
+    if (blockedDates.includes(dateStr)) return false
+    return true
   }
 
   const handleDateClick = (day: number) => {
@@ -107,11 +111,13 @@ function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarPro
       const isStart = selectedStart === dateStr
       const isEnd = selectedEnd === dateStr
       const isToday = new Date(dateStr).toDateString() === today.toDateString()
+      const isBlocked = blockedDates.includes(dateStr)
 
       let className = 'calendar-day'
       if (!selectable) className += ' disabled'
       if (bookedStatus === 'confirmed') className += ' booked-confirmed'
       if (bookedStatus === 'pending') className += ' booked-pending'
+      if (isBlocked && !bookedStatus) className += ' blocked'
       if (inRange) className += ' in-range'
       if (isStart) className += ' range-start'
       if (isEnd) className += ' range-end'
@@ -176,6 +182,10 @@ function Calendar({ onDateRangeSelect, selectedStart, selectedEnd }: CalendarPro
         <div className="legend-item">
           <span className="legend-color booked"></span>
           <span>Booket</span>
+        </div>
+        <div className="legend-item">
+          <span className="legend-color blocked"></span>
+          <span>Utilgængelig</span>
         </div>
       </div>
     </div>
