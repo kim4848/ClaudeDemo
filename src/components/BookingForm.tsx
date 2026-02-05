@@ -9,13 +9,14 @@ interface BookingFormProps {
   selectedStart: string | null
   selectedEnd: string | null
   onDateChange: (start: string | null, end: string | null) => void
+  guestCount: number
+  onGuestCountChange: (count: number) => void
 }
 
-function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormProps) {
+function BookingForm({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCountChange }: BookingFormProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [guestCount, setGuestCount] = useState(1)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -67,7 +68,7 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
       setName('')
       setEmail('')
       setPhone('')
-      setGuestCount(1)
+      onGuestCountChange(2)
       onDateChange(null, null)
     } catch {
       setSubmitStatus('error')
@@ -183,7 +184,7 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
                 type="number"
                 id="booking-guests"
                 value={guestCount}
-                onChange={(e) => setGuestCount(Math.max(1, parseInt(e.target.value) || 1))}
+                onChange={(e) => onGuestCountChange(Math.max(1, Math.min(10, parseInt(e.target.value) || 1)))}
                 min="1"
                 max="10"
                 required

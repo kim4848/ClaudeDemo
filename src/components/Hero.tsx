@@ -4,9 +4,11 @@ interface HeroProps {
   selectedStart: string | null
   selectedEnd: string | null
   onDateChange: (start: string | null, end: string | null) => void
+  guestCount: number
+  onGuestCountChange: (count: number) => void
 }
 
-function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
+function Hero({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCountChange }: HeroProps) {
   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newStart = e.target.value || null
     onDateChange(newStart, selectedEnd)
@@ -93,12 +95,20 @@ function Hero({ selectedStart, selectedEnd, onDateChange }: HeroProps) {
                   </svg>
                   Gæster
                 </label>
-                <select>
+                <select
+                  value={guestCount}
+                  onChange={(e) => onGuestCountChange(parseInt(e.target.value))}
+                >
+                  <option value="1">1 gæst</option>
                   <option value="2">2 gæster</option>
                   <option value="3">3 gæster</option>
                   <option value="4">4 gæster</option>
                   <option value="5">5 gæster</option>
                   <option value="6">6 gæster</option>
+                  <option value="7">7 gæster</option>
+                  <option value="8">8 gæster</option>
+                  <option value="9">9 gæster</option>
+                  <option value="10">10 gæster</option>
                 </select>
               </div>
             </div>

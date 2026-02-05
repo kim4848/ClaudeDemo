@@ -5,9 +5,11 @@ interface ContactProps {
   selectedStart: string | null
   selectedEnd: string | null
   onDateChange: (start: string | null, end: string | null) => void
+  guestCount: number
+  onGuestCountChange: (count: number) => void
 }
 
-function Contact({ selectedStart, selectedEnd, onDateChange }: ContactProps) {
+function Contact({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCountChange }: ContactProps) {
   return (
     <section id="kontakt" className="contact">
       <div className="contact-container">
@@ -23,6 +25,8 @@ function Contact({ selectedStart, selectedEnd, onDateChange }: ContactProps) {
               selectedStart={selectedStart}
               selectedEnd={selectedEnd}
               onDateChange={onDateChange}
+              guestCount={guestCount}
+              onGuestCountChange={onGuestCountChange}
             />
           </div>
 
