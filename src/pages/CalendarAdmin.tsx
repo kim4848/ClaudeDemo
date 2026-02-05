@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { getBookedDates, getBookings } from '../utils/bookingStorage'
 import { getBlockedDateStrings, addBlockedDate, removeBlockedDate, isDateBlocked } from '../utils/blockedDatesStorage'
 import type { Booking } from '../types/booking'
+import AdminLayout from '../components/AdminLayout'
 import './CalendarAdmin.css'
 
 const MONTH_NAMES = [
@@ -144,21 +144,11 @@ function CalendarAdmin() {
   const pendingBookingsCount = allBookings.filter(b => b.status === 'pending').length
 
   return (
-    <div className="calendar-admin">
-      <header className="calendar-admin-header">
-        <div className="calendar-admin-header-content">
-          <Link to="/admin" className="admin-back-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Tilbage til booking admin
-          </Link>
-          <h1>Kalender Administration</h1>
-          <p>Se bookinger og bloker datoer der ikke kan bookes</p>
-        </div>
-      </header>
-
-      <main className="calendar-admin-main">
+    <AdminLayout
+      title="Kalender Administration"
+      description="Se bookinger og bloker datoer der ikke kan bookes"
+    >
+      <div className="calendar-admin-content">
         <div className="calendar-admin-stats">
           <div className="stat-card">
             <span className="stat-number">{confirmedBookingsCount}</span>
@@ -290,8 +280,8 @@ function CalendarAdmin() {
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AdminLayout>
   )
 }
 

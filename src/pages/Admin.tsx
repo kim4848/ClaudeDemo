@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import type { Booking } from '../types/booking'
 import { getBookings, updateBookingStatus, deleteBooking } from '../utils/bookingStorage'
+import AdminLayout from '../components/AdminLayout'
 import './Admin.css'
 
 type FilterStatus = 'all' | 'pending' | 'confirmed' | 'rejected'
@@ -48,32 +48,11 @@ function Admin() {
   const rejectedCount = bookings.filter(b => b.status === 'rejected').length
 
   return (
-    <div className="admin">
-      <header className="admin-header">
-        <div className="admin-header-content">
-          <div className="admin-header-nav">
-            <Link to="/" className="admin-back-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Tilbage til forsiden
-            </Link>
-            <Link to="/admin/calendar" className="admin-nav-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/>
-                <line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
-              </svg>
-              Kalender
-            </Link>
-          </div>
-          <h1>Booking Administration</h1>
-          <p>Administrer alle bookinger for Casa Mil Palmeras</p>
-        </div>
-      </header>
-
-      <main className="admin-main">
+    <AdminLayout
+      title="Booking Administration"
+      description="Administrer alle bookinger for Casa Mil Palmeras"
+    >
+      <div className="admin-content">
         <div className="admin-stats">
           <div className="stat-card">
             <span className="stat-number">{bookings.length}</span>
@@ -150,8 +129,8 @@ function Admin() {
             ))}
           </div>
         )}
-      </main>
-    </div>
+      </div>
+    </AdminLayout>
   )
 }
 
