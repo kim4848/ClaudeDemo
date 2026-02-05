@@ -15,6 +15,7 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
+  const [guestCount, setGuestCount] = useState(1)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -57,6 +58,7 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
         name,
         email,
         phone,
+        guestCount,
         startDate: selectedStart,
         endDate: selectedEnd,
       })
@@ -65,6 +67,7 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
       setName('')
       setEmail('')
       setPhone('')
+      setGuestCount(1)
       onDateChange(null, null)
     } catch {
       setSubmitStatus('error')
@@ -170,6 +173,19 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+45 00 00 00 00"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="booking-guests">Antal gæster</label>
+              <input
+                type="number"
+                id="booking-guests"
+                value={guestCount}
+                onChange={(e) => setGuestCount(Math.max(1, parseInt(e.target.value) || 1))}
+                min="1"
+                max="10"
                 required
               />
             </div>
