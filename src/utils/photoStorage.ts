@@ -57,11 +57,11 @@ export async function uploadPhoto(
     }
   )
 
-  if (!response.ok) {
-    throw new Error('Upload failed')
-  }
-
   const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Upload failed')
+  }
 
   // Save metadata to localStorage
   return savePhoto({
