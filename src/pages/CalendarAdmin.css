@@ -1,36 +1,3 @@
-.calendar-admin {
-  min-height: 100vh;
-  background: var(--color-bg);
-}
-
-.calendar-admin-header {
-  background: var(--gradient-primary);
-  padding: 2rem;
-  color: white;
-}
-
-.calendar-admin-header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.calendar-admin-header h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-}
-
-.calendar-admin-header p {
-  opacity: 0.9;
-  font-size: 1.1rem;
-}
-
-.calendar-admin-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
 /* Stats */
 .calendar-admin-stats {
   display: grid;
@@ -505,10 +472,6 @@
 }
 
 @media (max-width: 480px) {
-  .calendar-admin-main {
-    padding: 1rem;
-  }
-
   .admin-calendar {
     padding: 1rem;
   }
