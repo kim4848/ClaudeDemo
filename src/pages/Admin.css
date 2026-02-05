@@ -14,18 +14,41 @@
   margin: 0 auto;
 }
 
+.admin-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .admin-back-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
-  margin-bottom: 1rem;
   transition: var(--transition-fast);
 }
 
 .admin-back-link:hover {
   color: white;
+}
+
+.admin-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.admin-nav-link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .admin-header h1 {
