@@ -62,6 +62,8 @@ function Hero({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCou
                   value={selectedStart || ''}
                   onChange={handleStartDateChange}
                   onKeyDown={(e) => e.preventDefault()}
+                  onClick={(e) => (e.target as HTMLInputElement).showPicker()}
+                  data-has-value={selectedStart ? 'true' : undefined}
                   min={today}
                 />
               </div>
@@ -81,6 +83,8 @@ function Hero({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCou
                   value={selectedEnd || ''}
                   onChange={handleEndDateChange}
                   onKeyDown={(e) => e.preventDefault()}
+                  onClick={(e) => (e.target as HTMLInputElement).showPicker()}
+                  data-has-value={selectedEnd ? 'true' : undefined}
                   min={selectedStart || today}
                 />
               </div>
