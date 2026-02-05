@@ -5,6 +5,7 @@ export interface Booking {
   name: string
   email: string
   phone: string
+  guestCount: number
   startDate: string // ISO date string
   endDate: string // ISO date string
   status: BookingStatus
@@ -15,6 +16,7 @@ export interface BookingFormData {
   name: string
   email: string
   phone: string
+  guestCount: number
   startDate: string
   endDate: string
 }
