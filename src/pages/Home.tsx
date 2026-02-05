@@ -11,6 +11,7 @@ import ScrollingBackground from '../components/ScrollingBackground'
 function Home() {
   const [selectedStart, setSelectedStart] = useState<string | null>(null)
   const [selectedEnd, setSelectedEnd] = useState<string | null>(null)
+  const [guestCount, setGuestCount] = useState(2)
 
   const handleDateChange = (start: string | null, end: string | null) => {
     setSelectedStart(start)
@@ -26,6 +27,8 @@ function Home() {
           selectedStart={selectedStart}
           selectedEnd={selectedEnd}
           onDateChange={handleDateChange}
+          guestCount={guestCount}
+          onGuestCountChange={setGuestCount}
         />
         <Services />
         <PhotoGallery />
@@ -34,6 +37,8 @@ function Home() {
           selectedStart={selectedStart}
           selectedEnd={selectedEnd}
           onDateChange={handleDateChange}
+          guestCount={guestCount}
+          onGuestCountChange={setGuestCount}
         />
       </main>
       <Footer />
