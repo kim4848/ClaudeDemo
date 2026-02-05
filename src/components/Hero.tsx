@@ -59,7 +59,6 @@ function Hero({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCou
                 </label>
                 <input
                   type="date"
-                  placeholder="Vælg dato"
                   value={selectedStart || ''}
                   onChange={handleStartDateChange}
                   onKeyDown={(e) => e.preventDefault()}
@@ -79,7 +78,6 @@ function Hero({ selectedStart, selectedEnd, onDateChange, guestCount, onGuestCou
                 </label>
                 <input
                   type="date"
-                  placeholder="Vælg dato"
                   value={selectedEnd || ''}
                   onChange={handleEndDateChange}
                   onKeyDown={(e) => e.preventDefault()}
