@@ -73,11 +73,16 @@ export async function uploadPhoto(
 
 export async function deletePhotoWithBlob(photo: GalleryPhoto): Promise<void> {
   // Delete from Vercel Blob
-  await fetch('/api/photos', {
+  const response = await fetch('/api/photos', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ url: photo.url }),
   })
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}))
+    throw new Error(data.error || 'Kunne ikke slette billedet fra serveren')
+  }
 
   // Delete from localStorage
   deletePhoto(photo.id)
