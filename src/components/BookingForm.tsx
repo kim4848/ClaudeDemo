@@ -32,6 +32,15 @@ function BookingForm({ selectedStart, selectedEnd, onDateChange }: BookingFormPr
       return
     }
 
+    // Check if start date is in the past
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    const startDate = new Date(selectedStart)
+    if (startDate < today) {
+      setErrorMessage('Ankomstdatoen kan ikke være i fortiden. Vælg venligst en fremtidig dato.')
+      return
+    }
+
     const days = getDaysBetween(selectedStart, selectedEnd)
     if (days < MIN_BOOKING_DAYS) {
       setErrorMessage(`Minimum booking er ${MIN_BOOKING_DAYS} dage. Du har valgt ${days} dag${days === 1 ? '' : 'e'}.`)
